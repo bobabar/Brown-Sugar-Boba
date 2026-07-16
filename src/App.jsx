@@ -3,29 +3,27 @@ import { useEffect, useState } from 'react'
 const products = [
   {
     name: 'Apply to China',
-    description: 'A clearer path through university applications in China.',
+    description: 'A simpler path to university in China.',
     status: 'Coming soon',
     icon: 'graduation',
   },
   {
     name: 'China City Maps',
-    description:
-      'Explore where to live and stay with neighborhood context for housing, transit, parks, work, and schools.',
+    description: 'Neighborhood insights for living and navigating Chinese cities.',
     label: 'Visit chinacitymaps.com',
     href: 'https://chinacitymaps.com',
     icon: 'pin',
   },
   {
     name: 'Mandarin Trainer',
-    description:
-      'Adaptive Mandarin practice for vocabulary, grammar, pronunciation, HSK exams, geography, and sentence building.',
+    description: 'Adaptive Mandarin practice for fluency and HSK exams.',
     label: 'Visit mandarintrainer.com',
     href: 'https://mandarintrainer.com',
     icon: 'language',
   },
   {
     name: 'Live Lecture Translator',
-    description: 'Private lecture transcription and translation across 22 languages.',
+    description: 'Private lecture transcription and translation in 22 languages.',
     label: 'Visit livelecturetranslator.com',
     href: 'https://livelecturetranslator.com',
     icon: 'waveform',
