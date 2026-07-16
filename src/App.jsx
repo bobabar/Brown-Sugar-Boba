@@ -23,7 +23,7 @@ const products = [
   },
   {
     name: 'Live Lecture Translator',
-    description: 'Private lecture transcription and translation in 22 languages.',
+    description: 'Lecture translation in 22 languages.',
     label: 'Visit livelecturetranslator.com',
     href: 'https://livelecturetranslator.com',
     icon: 'waveform',
