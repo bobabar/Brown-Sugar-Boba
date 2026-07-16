@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { IconLanguage } from '@tabler/icons-react'
 
 const products = [
   {
@@ -124,15 +125,6 @@ function ProductIcon({ type }) {
         <circle cx="12" cy="9" r="2.2" />
       </>
     ),
-    language: (
-      <>
-        <path d="M5 6h9" />
-        <path d="M9.5 3v3c0 5-2.2 8-5.5 10" />
-        <path d="M7 11c1.5 2 3.2 3.4 5 4.2" />
-        <path d="m14 20 3.5-9 3.5 9" />
-        <path d="M15.4 17h4.2" />
-      </>
-    ),
     waveform: (
       <>
         <path d="M4 10v4" />
@@ -146,7 +138,11 @@ function ProductIcon({ type }) {
 
   return (
     <span className="product-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24">{content[type]}</svg>
+      {type === 'language' ? (
+        <IconLanguage stroke={1.4} />
+      ) : (
+        <svg viewBox="0 0 24 24">{content[type]}</svg>
+      )}
     </span>
   )
 }

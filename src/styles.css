@@ -25,6 +25,7 @@
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
 }
@@ -33,6 +34,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: clip;
   background: var(--cream);
   color: var(--green-900);
 }
@@ -440,7 +442,9 @@ svg {
   height: 62px;
   display: grid;
   place-items: center;
-  border: 1.4px solid var(--green-900);
+  color: var(--cream);
+  background: var(--accent-ink);
+  border: 1.4px solid var(--accent-ink);
   border-radius: 50%;
   transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
@@ -457,15 +461,9 @@ svg {
 
 .product-row:hover .product-icon {
   color: var(--cream);
-  background: var(--green-900);
+  background: var(--accent-ink-hover);
+  border-color: var(--accent-ink-hover);
   transform: rotate(-4deg);
-}
-
-.product-row--soon .product-icon,
-.product-row--soon:hover .product-icon {
-  color: var(--cream);
-  background: var(--accent-ink);
-  border-color: var(--accent-ink);
 }
 
 .product-copy {
