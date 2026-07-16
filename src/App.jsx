@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { IconLanguage } from '@tabler/icons-react'
+import { IconCheck, IconLanguage } from '@tabler/icons-react'
 
 const products = [
   {
@@ -7,6 +7,9 @@ const products = [
     description: 'A simpler path to university in China.',
     status: 'Coming soon',
     icon: 'graduation',
+    image: '/product-shots/apply-to-china.png',
+    imageAlt: 'Apply to China application dashboard with university choices and document progress',
+    highlights: ['Application checklist', 'University choices', 'Document progress'],
   },
   {
     name: 'China City Maps',
@@ -14,6 +17,9 @@ const products = [
     label: 'Visit chinacitymaps.com',
     href: 'https://chinacitymaps.com',
     icon: 'pin',
+    image: '/product-shots/china-city-maps.png',
+    imageAlt: 'China City Maps neighborhood explorer showing Shanghai map and local context',
+    highlights: ['Compare neighborhoods', 'Housing, schools, and transit', 'Made for expats and families'],
   },
   {
     name: 'Mandarin Trainer',
@@ -21,6 +27,9 @@ const products = [
     label: 'Visit mandarintrainer.com',
     href: 'https://mandarintrainer.com',
     icon: 'language',
+    image: '/product-shots/mandarin-trainer.png',
+    imageAlt: 'Mandarin Trainer study plan with HSK levels and personalized practice',
+    highlights: ['Adaptive daily practice', 'Pronunciation and grammar', 'Full mock HSK exams'],
   },
   {
     name: 'Live Lecture Translator',
@@ -28,6 +37,9 @@ const products = [
     label: 'Visit livelecturetranslator.com',
     href: 'https://livelecturetranslator.com',
     icon: 'waveform',
+    image: '/product-shots/live-lecture-translator.png',
+    imageAlt: 'Live Lecture Translator showing an English transcript beside Chinese translation',
+    highlights: ['Side-by-side translation', 'Private, offline-ready workflow', '22 supported languages'],
   },
 ]
 
@@ -257,47 +269,116 @@ function Hero() {
   )
 }
 
-function ProductRow({ product, index }) {
-  const content = (
-    <>
-      <span className="product-number">{String(index + 1).padStart(2, '0')}</span>
-      <ProductIcon type={product.icon} />
-      <span className="product-copy">
-        <span className="product-name">{product.name}</span>
-        <span className="product-description">{product.description}</span>
-      </span>
-      <span className={product.status ? 'product-status' : 'product-link'}>
-        {product.status ?? product.label}
-      </span>
-      <span className="product-arrow" aria-hidden="true">
-        <ArrowIcon />
-      </span>
-    </>
-  )
-
-  if (!product.href) {
-    return <div className="product-row product-row--soon">{content}</div>
-  }
-
-  return (
-    <a className="product-row" href={product.href} target="_blank" rel="noreferrer">
-      {content}
-    </a>
-  )
-}
-
 function Products() {
+  const [activeIndex, setActiveIndex] = useState(1)
+  const activeProduct = products[activeIndex]
+
   return (
-    <section className="products section-pad" id="work" aria-labelledby="products-title">
+    <section className="products" id="work" aria-labelledby="products-title">
       <div className="products-inner">
-        <div className="section-heading">
-          <h2 id="products-title">Our products</h2>
-          <LeafMark />
+        <div className="product-selector">
+          <div className="section-heading section-heading--products">
+            <h2 id="products-title">Our products</h2>
+            <LeafMark />
+          </div>
+
+          <div className="product-selector-list" aria-label="Choose a featured product">
+            {products.map((product, index) => {
+              const selected = index === activeIndex
+
+              return (
+                <button
+                  className={`product-selector-item${selected ? ' is-active' : ''}`}
+                  type="button"
+                  key={product.name}
+                  aria-pressed={selected}
+                  aria-controls="featured-product"
+                  onClick={() => setActiveIndex(index)}
+                >
+                  <span className="product-number">{String(index + 1).padStart(2, '0')}</span>
+                  <ProductIcon type={product.icon} />
+                  <span className="product-selector-copy">
+                    <span className="product-name">{product.name}</span>
+                    <span className="product-description">{product.description}</span>
+                  </span>
+                </button>
+              )
+            })}
+          </div>
+
+          <div className="product-selector-footer" aria-hidden="true">
+            <LeafMark />
+            <p>
+              Built for real life,
+              <br />
+              across borders.
+            </p>
+            <ContourLines variant="products" />
+          </div>
         </div>
-        <div className="product-list">
-          {products.map((product, index) => (
-            <ProductRow key={product.name} product={product} index={index} />
-          ))}
+
+        <div className="product-stage" id="featured-product">
+          <div className="product-stage-main">
+            <div className="product-stage-copy" aria-live="polite">
+              <span className="product-stage-eyebrow">Featured product</span>
+              <h3>{activeProduct.name}</h3>
+              <p>{activeProduct.description}</p>
+
+              {activeProduct.href ? (
+                <a
+                  className="product-stage-cta"
+                  href={activeProduct.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>{activeProduct.label}</span>
+                  <ArrowIcon />
+                </a>
+              ) : (
+                <span className="product-stage-status">{activeProduct.status}</span>
+              )}
+
+              <ul className="product-highlights" aria-label={`${activeProduct.name} highlights`}>
+                {activeProduct.highlights.map((highlight) => (
+                  <li key={highlight}>
+                    <IconCheck aria-hidden="true" stroke={1.8} />
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="product-stage-visual" key={activeProduct.name}>
+              <img src={activeProduct.image} alt={activeProduct.imageAlt} />
+            </div>
+          </div>
+
+          <div className="product-filmstrip" aria-label="Product previews">
+            {products.map((product, index) => {
+              const selected = index === activeIndex
+
+              return (
+                <button
+                  className={`product-preview${selected ? ' is-active' : ''}`}
+                  type="button"
+                  key={product.name}
+                  aria-pressed={selected}
+                  aria-controls="featured-product"
+                  onClick={() => setActiveIndex(index)}
+                >
+                  <span className="product-preview-image">
+                    <img src={product.image} alt="" loading={index === 1 ? 'eager' : 'lazy'} />
+                    {product.status && <span>{product.status}</span>}
+                  </span>
+                  <span className="product-preview-meta">
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <span>{product.name}</span>
+                  </span>
+                  <span className="product-preview-description">{product.description}</span>
+                </button>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
