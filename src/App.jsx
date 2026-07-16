@@ -3,15 +3,6 @@ import { IconCheck, IconLanguage } from '@tabler/icons-react'
 
 const products = [
   {
-    name: 'Apply to China',
-    description: 'A simpler path to university in China.',
-    status: 'Coming soon',
-    icon: 'graduation',
-    image: '/product-shots/apply-to-china.png',
-    imageAlt: 'Apply to China application dashboard with university choices and document progress',
-    highlights: ['Application checklist', 'University choices', 'Document progress'],
-  },
-  {
     name: 'China City Maps',
     description: 'Neighborhood insights for living and navigating Chinese cities.',
     label: 'Visit chinacitymaps.com',
@@ -40,6 +31,15 @@ const products = [
     image: '/product-shots/live-lecture-translator.png',
     imageAlt: 'Live Lecture Translator showing an English transcript beside Chinese translation',
     highlights: ['Side-by-side translation', 'Private, offline-ready workflow', '22 supported languages'],
+  },
+  {
+    name: 'Apply to China',
+    description: 'A simpler path to university in China.',
+    status: 'Coming soon',
+    icon: 'graduation',
+    image: '/product-shots/apply-to-china.png',
+    imageAlt: 'Apply to China application dashboard with university choices and document progress',
+    highlights: ['Application checklist', 'University choices', 'Document progress'],
   },
 ]
 
@@ -270,7 +270,7 @@ function Hero() {
 }
 
 function Products() {
-  const [activeIndex, setActiveIndex] = useState(1)
+  const [activeIndex, setActiveIndex] = useState(0)
   const activeProduct = products[activeIndex]
 
   return (
