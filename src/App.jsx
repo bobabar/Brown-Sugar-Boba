@@ -16,7 +16,7 @@ const products = [
   },
   {
     name: 'Mandarin Trainer',
-    description: 'Adaptive Mandarin practice for fluency and HSK exams.',
+    description: 'Adaptive Mandarin practice for fluency and mock HSK exams.',
     label: 'Visit mandarintrainer.com',
     href: 'https://mandarintrainer.com',
     icon: 'language',
