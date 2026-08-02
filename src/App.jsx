@@ -432,7 +432,10 @@ function Contact() {
 
       <footer className="footer">
         <span className="footer-brand">Brown Sugar Boba</span>
-        <span>Software and services</span>
+        <span className="footer-links">
+          <a href="/privacy.html">Privacy</a>
+          <a href="/account-deletion.html">Account deletion</a>
+        </span>
         <span>© {year} Brown Sugar Boba</span>
       </footer>
     </section>
