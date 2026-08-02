@@ -157,6 +157,12 @@ export default function AccountDeletion() {
           <h1>Delete your account</h1>
           <p>Permanently erase your Chinese Character Combiner account and synchronized game progress.</p>
         </header>
+        <section className="deletion-panel">
+          <h2>Delete game data but keep your account</h2>
+          <p>
+            In the game, open Settings, choose <strong>Reset progress</strong>, then confirm <strong>Reset everything</strong>. This permanently clears your score, dictionary, unlocked characters, milestones, and achievements. If you are signed in, the fresh state replaces your synchronized cloud save across devices. Your account, email association, and display preferences remain.
+          </p>
+        </section>
         {content}
       </article>
     </LegalShell>
