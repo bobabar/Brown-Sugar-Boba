@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { IconCheck, IconLanguage } from '@tabler/icons-react'
+import { IconCheck, IconLanguage, IconSparkles } from '@tabler/icons-react'
 
 const products = [
   {
@@ -21,6 +21,15 @@ const products = [
     image: '/product-shots/mandarin-trainer.png',
     imageAlt: 'Mandarin Trainer study plan with HSK levels and personalized practice',
     highlights: ['Adaptive daily practice', 'Pronunciation and grammar', 'Full mock HSK exams'],
+  },
+  {
+    name: 'Chinese Character Combiner',
+    description: 'A delightful word-merging game built from Chinese characters.',
+    status: 'Coming soon',
+    icon: 'characters',
+    image: '/product-shots/chinese-character-combiner.png',
+    imageAlt: 'Chinese Character Combiner artwork with three Chinese character tiles joining in a burst of flowers and light',
+    highlights: ['Merge characters into real words', 'Discover 10,000 words', 'Unlock eras and achievements'],
   },
   {
     name: 'Live Lecture Translator',
@@ -152,6 +161,8 @@ function ProductIcon({ type }) {
     <span className="product-icon" aria-hidden="true">
       {type === 'language' ? (
         <IconLanguage stroke={1.4} />
+      ) : type === 'characters' ? (
+        <IconSparkles stroke={1.4} />
       ) : (
         <svg viewBox="0 0 24 24">{content[type]}</svg>
       )}
@@ -298,7 +309,12 @@ function Products() {
                   <span className="product-number">{String(index + 1).padStart(2, '0')}</span>
                   <ProductIcon type={product.icon} />
                   <span className="product-selector-copy">
-                    <span className="product-name">{product.name}</span>
+                    <span className="product-title-row">
+                      <span className="product-name">{product.name}</span>
+                      {product.status && (
+                        <span className="product-selector-status">{product.status}</span>
+                      )}
+                    </span>
                     <span className="product-description">{product.description}</span>
                   </span>
                 </button>

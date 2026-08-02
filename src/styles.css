@@ -513,6 +513,26 @@ svg {
   letter-spacing: -0.035em;
 }
 
+.product-title-row {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 10px;
+  align-items: center;
+}
+
+.product-selector-status {
+  flex: 0 0 auto;
+  padding: 4px 6px 3px;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+}
+
 .product-description {
   max-width: 650px;
   font-size: 14px;
@@ -697,7 +717,7 @@ svg {
 .product-filmstrip {
   margin-top: clamp(42px, 5vw, 72px);
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 12px;
 }
 
