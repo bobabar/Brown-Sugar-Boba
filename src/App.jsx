@@ -3,16 +3,6 @@ import { IconCheck, IconLanguage, IconSparkles } from '@tabler/icons-react'
 
 const products = [
   {
-    name: 'China City Maps',
-    description: 'Neighborhood insights for living and navigating Chinese cities.',
-    label: 'Visit chinacitymaps.com',
-    href: 'https://chinacitymaps.com',
-    icon: 'pin',
-    image: '/product-shots/china-city-maps.png',
-    imageAlt: 'China City Maps neighborhood explorer showing Shanghai map and local context',
-    highlights: ['Compare neighborhoods', 'Housing, schools, and transit', 'Made for expats and families'],
-  },
-  {
     name: 'Mandarin Trainer',
     description: 'Adaptive Mandarin practice for fluency and mock HSK exams.',
     label: 'Visit mandarintrainer.com',
@@ -40,15 +30,6 @@ const products = [
     image: '/product-shots/live-lecture-translator.png',
     imageAlt: 'Live Lecture Translator showing an English transcript beside Chinese translation',
     highlights: ['Side-by-side translation', 'Private, offline-ready workflow', '22 supported languages'],
-  },
-  {
-    name: 'Apply to China',
-    description: 'A simpler path to university in China.',
-    status: 'Coming soon',
-    icon: 'graduation',
-    image: '/product-shots/apply-to-china.png',
-    imageAlt: 'Apply to China application dashboard with university choices and document progress',
-    highlights: ['Application checklist', 'University choices', 'Document progress'],
   },
 ]
 
@@ -133,13 +114,6 @@ function ContourLines({ variant = 'hero' }) {
 
 function ProductIcon({ type }) {
   const content = {
-    graduation: (
-      <>
-        <path d="m4 10 8-4 8 4-8 4-8-4Z" />
-        <path d="M7 12v5c3 2 7 2 10 0v-5" />
-        <path d="M20 10v6" />
-      </>
-    ),
     pin: (
       <>
         <path d="M12 21s6-6.3 6-12a6 6 0 1 0-12 0c0 5.7 6 12 6 12Z" />
